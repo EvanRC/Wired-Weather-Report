@@ -7,7 +7,6 @@ var citySearch = document.querySelector("#city-search");
 var searchButton = document.querySelector("#searchbutton");
 var cityName = document.querySelector("#cityname");
 var currentTemperature = document.querySelector("#temperature");
-var currentUvIndex = document.querySelector("#uv-index");
 var currentWindSpeed = document.querySelector("#wind-speed");
 var currentHumidity = document.querySelector("#humidity");
 
@@ -24,7 +23,7 @@ function getWeatherData(city) {
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         city +
         "&appid=" +
-        APIKey;
+        APIKey +"&units=imperial";
     console.log(queryURL)
     //API request using the fetch()
     fetch(queryURL)
@@ -40,17 +39,16 @@ function getWeatherData(city) {
         .then(function (data) {
             console.log(data)
             //retrives the desired weather information from openWeather
-            // var temperature = data.main.tempp;
-            // var uvIndex = data.value.uvIndex;
-            // var windSpeed = data.wind.speed;
-            // var humidity = data.main.humidity;
+            var temperature = data.main.temp;
+            var windSpeed = data.wind.speed;
+            var humidity = data.main.humidity;
 
-            // //create dynamic html elements with weather data
-            // cityName.text(city);
-            // currentTemperature.text(temperature);
-            // currentUvIndex.text(uvIndex);
-            // currentWindSpeed.text(windSpeed);
-            // currentHumidity.text(hymidity);
+            //create dynamic html elements with weather data
+            cityName.innerText = data.name;
+            currentTemperature.innerText = temperature;
+            currentWindSpeed.innerText = windSpeed;
+            currentHumidity.innerText = humidity;
+            document.getElementById("tempIcon").setAttribute("src",`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
         })
         .catch(function (error) {
             //handle error case
@@ -63,6 +61,8 @@ function searchCity() {
     var city = citySearch.value;
     console.log(city)
     getWeatherData(city);
+getFiveDayWeatherData(city)
+    
 
     //then stores searched city into local storage
     // sCity.push(city);
@@ -89,10 +89,52 @@ function renderPreviousSearch() {
     }
 };
 
+//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
 
 
+function getFiveDayWeatherData(city) {
+    var queryURL =
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+        city +
+        "&appid=" +
+        APIKey +"&units=imperial";
+    console.log(queryURL)
+    //API request using the fetch()
+    fetch(queryURL)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Error: " + response.status);
+            }
+        })
 
 
+        .then(function (data) {
+            console.log(data)
+            var htmlForecastCards = `<div class="row">`
+            for (let i = 0; i <data.list.length; i = i + 8) {
+                htmlForecastCards += `
+                <div class="col-sm-2 forecast">
+                <p>${dayjs(data.list[i].dt_txt).format('MM/DD/YYYY')}</p>
+                <p></p>
+                <p>Temperature:<span>${data.list[i].main.temp}</span>
+                    <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" />
+                </p>
+                <p>Wind Speed:<span>${data.list[i].wind.speed}</span></p>
+                <p>Humidity:<span >${data.list[i].main.humidity}</span></p>
+            </div>
+                `
+            }
+            htmlForecastCards += `</div>`
+            document.getElementById("future-forecast").innerHTML = htmlForecastCards
+        
+        })
+        .catch(function (error) {
+            //handle error case
+            console.log("error: " + error.message);
+        });
+}
 
 
 
