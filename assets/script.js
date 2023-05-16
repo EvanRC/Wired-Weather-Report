@@ -74,6 +74,19 @@ function searchCity() {
     citySearch.val('');
 } 
 
+//retrive and display stored cities from the local storage
+$(document).ready(function () {
+    sCity.forEach(function (city) {
+        var listItem = $("<li>").text(city);
+        cityList.append(listItem);
+    });
+
+    //get the weather data for the fist city in the list
+    if (sCity.length > 0) {
+        getWeatherData(sCity[0]);
+    }
+});
+
 
 
 
