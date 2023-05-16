@@ -35,7 +35,7 @@ fetch(queryURL)
         throw new Error("Error: " + response.status);
     }
 })
-}
+
 
 .then(function(data) {
     //retrives the desired weather information from openWeather
@@ -46,10 +46,33 @@ fetch(queryURL)
 
     //create dynamic html elements with weather data
     cityName.text(city);
-
-
+    currentTemperature.text(temperature);
+    currentUvIndex.text(uvIndex);
+    currentWindSpeed.text(windSpeed);
+    currentHumidity.text(hummidity);
 })
+.catch(function (error) {
+    //handle error case
+    console.log("error: " + error.message);
+});
+}
 
+//function created for city search
+function searchCity() {
+    var city = citySearch.val();
+    getWeatherData(city);
+
+    //then stores searched city into local storage
+    sCity.push(city);
+    localStorage.setItem('cities', JSON.stringify(sCity));
+
+    //adds searched city to the city ist
+    var listItem = $("<li>").text(city);
+    cityList.append(listItem);
+
+    //clears search field
+    citySearch.val('');
+} 
 
 
 
