@@ -1,4 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* css reset */
+}
+
 header {
-    background-color: aqua;
+    background: linear-gradient(to right, navy, whitesmoke);
     height: 5rem;
+}
+
+.srchbox {
+    margin-left: 1rem;
+}
+
+.today {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: solid black 5px;
+    border-radius: 20px;
+}
+
+.row {
+    background-color: navy;
+    color: whitesmoke;
+   
+}
+
+.future {
+    float: left;
+    margin-top: 3rem;
+}
+
+.cityList {
+    border: solid black 5px;
 }
