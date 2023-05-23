@@ -45,9 +45,9 @@ function getWeatherData(city) {
 
             //create dynamic html elements with weather data
             cityName.innerText = data.name;
-            currentTemperature.innerText = temperature;
-            currentWindSpeed.innerText = windSpeed;
-            currentHumidity.innerText = humidity;
+            currentTemperature.innerText = `${temperature} \u00B0F`;
+            currentWindSpeed.innerText = `${windSpeed} mph`;
+            currentHumidity.innerText = `${humidity}%`;
             document.getElementById("tempIcon").setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
         })
         .catch(function (error) {
@@ -142,11 +142,11 @@ function getFiveDayWeatherData(city) {
                 <div class="col-sm-2 forecast">
                   <p>${dayjs(data.list[i].dt_txt).format('MM/DD/YYYY')}</p>
                   <p></p>
-                  <p>Temperature: <span>${data.list[i].main.temp}</span>
+                  <p>Temperature: <span>${data.list[i].main.temp} \u00B0F </span>
                     <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png">
                   </p>
-                  <p>Wind Speed: <span class="wind-speed">${data.list[i].wind.speed}</span></p>
-                  <p>Humidity: <span>${data.list[i].main.humidity}</span></p>
+                  <p>Wind Speed: <span class="wind-speed">${data.list[i].wind.speed} mph</span></p>
+                  <p>Humidity: <span>${data.list[i].main.humidity}%</span></p>
                 </div>
               `;
             }
