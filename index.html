@@ -20,15 +20,18 @@
             <h1>Wired Weather Report</h1>
         </header>
 
-        <aside class="srchbox">
-            <h3>Pick a city!</h3>
+        <aside class="col-md-3 srchbox">
+            <h3 id="pick-title">Pick a city!</h3>
             <div>
                 <input type="text" id="city-search" placeholder="Find your city!..">
                 <div>
                     <button class="csb" type="button" id="searchbutton">Search</button>
                 </div>
-                <ul class=" container row col-sm-3 cityList"></ul>
+                <ul class="container row col-sm-5 cityList"></ul>
             </div>
+            <button id="clear-button">Clear</button>
+
+            
         </aside>
 
         <div id="current-weather" class="container col-md-3 today">
@@ -40,6 +43,8 @@
             <p>Humidity: <span id="humidity"></span></p>
         </div>
 
+
+       
         <div id="future-forecast" class="container">
             <div class="row fiveday">
                 <h3>Five Day Forecast:</h3>

@@ -5,6 +5,7 @@ var city = "";
 //variables declared
 var citySearch = document.querySelector("#city-search");
 var searchButton = document.querySelector("#searchbutton");
+var clearButton = document.querySelector("#clear-button");
 var cityName = document.querySelector("#cityname");
 var currentTemperature = document.querySelector("#temperature");
 var currentWindSpeed = document.querySelector("#wind-speed");
@@ -16,6 +17,16 @@ var sCity = storedCities ? JSON.parse(storedCities) : [];
 
 //event listener added for the search button
 searchButton.addEventListener('click', searchCity);
+
+//event listener added for clear button
+clearButton.addEventListener("click", function () {
+    // removes cities from local storage
+    localStorage.removeItem("cities");
+
+    //clears the cities list
+    var cityList = document.querySelector(".cityList");
+    cityList.innerHTML = "";
+});
 
 //Function to get weather data from the open weather api
 function getWeatherData(city) {
@@ -63,7 +74,7 @@ function searchCity() {
 
     var storedCities = localStorage.getItem('cities');
     sCity = storedCities ? JSON.parse(storedCities) : [];
-    
+
     var city = citySearch.value;
     getWeatherData(city);
     getFiveDayWeatherData(city)
@@ -92,7 +103,7 @@ function renderPreviousSearch() {
 
     //clears content that is maybe already in the city list
     cityList.innerHTML = "";
-  
+
     //Adds each city to the list
     sCity.forEach(function (city) {
         var button = document.createElement("button");
