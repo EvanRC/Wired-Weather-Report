@@ -13,90 +13,91 @@
 
     <title>Wired-Weather-Report</title>
 </head>
-<main>
-
-    <body>
-        <header class="text-center">
-            <h1>Wired Weather Report</h1>
-        </header>
-
-        <aside class="col-md-3 srchbox">
-            <h3 id="pick-title">Pick a city!</h3>
-            <div>
-                <input type="text" id="city-search" placeholder="Find your city!..">
-                <div>
-                    <button class="csb" type="button" id="searchbutton">Search</button>
-                </div>
-                <ul class="container row col-sm-5 cityList"></ul>
-            </div>
-            <button id="clear-button">Clear</button>
-
-            
-        </aside>
-
-        <div id="current-weather" class="container col-md-3 today">
-            <h3 id="cityname">Today's Forecast:</h2>
-            <p>Temperature: <span id="temperature"></span>
-                <img src="" id="tempIcon" />
-            </p>
-            <p>Wind Speed: <span id="wind-speed"></span></p>
-            <p>Humidity: <span id="humidity"></span></p>
-        </div>
 
 
-       
-        <div id="future-forecast" class="container">
-            <div class="row fiveday">
-                <h3>Five Day Forecast:</h3>
-                <div class="col-md-2 future">
-                    <p></p>
-                    <p></p>
-                    <p>Temperature: <span></span>
-                        <img src="" />
-                    </p>
-                    <p>Wind Speed: <span></span></p>
-                    <p>Humidity: <span></span></p>
-                </div>
-                <div class="col-sm-2 future">
-                    <p id="day2"></p>
-                    <p id="img2"></p>
-                    <p>Temperature: <span id="temp2"></span></p>
-                    <p>Wind Speed: <span id="Wind2"></span></p>
-                    <p>Humidity: <span id="humid2"></span></p>
-                </div>
-                <div class="col-sm-2 future">
-                    <p id="day3"></p>
-                    <p id="img3"></p>
-                    <p>Temperature: <span id="temp3"></span></p>
-                    <p>Wind Speed: <span id="Wind3"></span></p>
-                    <p>Humidity: <span id="humid3"></span></p>
-                </div>
-                <div class="col-sm-2 future">
-                    <p id="day4"></p>
-                    <p id="img4"></p>
-                    <p>Temperature: <span id="temp4"></span></p>
-                    <p>Wind Speed: <span id="Wind4"></span></p>
-                    <p>Humidity: <span id="humid4"></span></p>
-                </div>
-                <div class="col-sm-2 future">
-                    <p id="day5"></p>
-                    <p id="img5"></p>
-                    <p>Temperature: <span id="temp5"></span></p>
-                    <p>Wind Speed: <span id="Wind5"></span></p>
-                    <p>Humidity: <span id="humid5"></span></p>
+<body>
+    <header class="text-center">
+        <h1>Wired Weather Report</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class=" row">
+                <aside class="col-md-3 srchbox">
+                    <h3 id="pick-title">Pick a city!</h3>
+                    <div>
+                        <input type="text" id="city-search" placeholder="Find your city!..">
+                        <div>
+                            <button class="csb" type="button" id="searchbutton">Search</button>
+                        </div>
+                        <ul class="container row col-sm-5 cityList"></ul>
+                    </div>
+                    <button id="clear-button">Clear</button>
+
+
+                </aside>
+
+                <div  id="current-weather" class="col-md-9">
+                    <div class="container today">
+                        <h3 id="cityname">Today's Forecast:</h2>
+                            <p>Temperature: <span id="temperature"></span>
+                                <img src="" id="tempIcon" />
+                            </p>
+                            <p>Wind Speed: <span id="wind-speed"></span></p>
+                            <p>Humidity: <span id="humidity"></span></p>
+                    </div>
                 </div>
             </div>
+
+
+            <div id="future-forecast" class="container text-center">
+                <div class="row fiveday justify-content-center">
+                    <h3>Five Day Forecast:</h3>
+                    <div class="col-md-2 justify-content-center future">
+                        <p></p>
+                        <p></p>
+                        <p>Temperature: <span></span>
+                            <img src="" />
+                        </p>
+                        <p>Wind Speed: <span></span></p>
+                        <p>Humidity: <span></span></p>
+                    </div>
+                    <div class="col-md-2 future">
+                        <p id="day2"></p>
+                        <p id="img2"></p>
+                        <p>Temperature: <span id="temp2"></span></p>
+                        <p>Wind Speed: <span id="Wind2"></span></p>
+                        <p>Humidity: <span id="humid2"></span></p>
+                    </div>
+                    <div class="col-md-2  future">
+                        <p id="day3"></p>
+                        <p id="img3"></p>
+                        <p>Temperature: <span id="temp3"></span></p>
+                        <p>Wind Speed: <span id="Wind3"></span></p>
+                        <p>Humidity: <span id="humid3"></span></p>
+                    </div>
+                    <div class="col-md-2 future">
+                        <p id="day4"></p>
+                        <p id="img4"></p>
+                        <p>Temperature: <span id="temp4"></span></p>
+                        <p>Wind Speed: <span id="Wind4"></span></p>
+                        <p>Humidity: <span id="humid4"></span></p>
+                    </div>
+                    <div class="col-md-2 future">
+                        <p id="day5"></p>
+                        <p id="img5"></p>
+                        <p>Temperature: <span id="temp5"></span></p>
+                        <p>Wind Speed: <span id="Wind5"></span></p>
+                        <p>Humidity: <span id="humid5"></span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="">
 
-        </div>
-
-
-
-</main>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-<script src="./assets/script.js"></script>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>

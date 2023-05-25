@@ -11,11 +11,32 @@ header {
 }
 
 .srchbox {
+    margin-top: 1rem;
     margin-left: 1rem;
+   padding-bottom: 1rem;
+}
+
+#current-weather {
+    margin-left: 1rem;
+    margin-top: 3rem;
+    float: right;
+}
+
+@media (min-width: 768px) {
+    .srchbox{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #current-weather{
+        margin-top: 0;
+        margin-left: 2rem;
+    }
 }
 
 .today {
     /* add styling to the today card */
+   
     margin-top: 3rem;
     margin-bottom: 3rem;
     padding-bottom: 10px;
@@ -50,12 +71,12 @@ aside {
 }
 
 #pick-title {
-    margin-top: 1rem;
+    
     margin-left: 1rem;
 }
 
 #city-search {
-    margin-top: 1rem;
+ 
     margin-left: 1rem;
 
 }
@@ -71,12 +92,13 @@ aside {
 .cityList {
     margin-top: 1rem;
     margin-left: 1rem;
+   width: 10rem;
 }
 
 #clear-button {
-    margin-top: 1rem;
+  
     margin-left: 1rem;
-    margin-bottom: 1rem;
+   
     padding-left: 1rem;
     padding-right: 1rem;
 }
