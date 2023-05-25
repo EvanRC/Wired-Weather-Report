@@ -19,7 +19,7 @@ JavaScript and HTML development was assited by my tutor Sangeetha Kaliaperumal.
 Please refer to license in the repo.
 
 ## Website URL:
-https://evanrc.github.io/Wired-Password-Generator/
+https://evanrc.github.io/Wired-Weather-Report/
 
 ## Code ScreenShot:
 ![weather-dashborad-screenshot](https://github.com/EvanRC/Wired-Weather-report/assets/124648885/7357e5a6-1219-493e-9873-709461c7fd89)
