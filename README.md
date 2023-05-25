@@ -2,10 +2,6 @@
 
 ## Description: A weather forecast app created to view the weather of multiple cities at once.
 
-# Noted Code additions:
-- Added a function to the Javascript to generate a password.
-- Added a few custom style elements to make it unique from the starter code.
-
 ## Installation:
 N/A
 
